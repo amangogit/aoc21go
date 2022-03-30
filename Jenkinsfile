@@ -7,7 +7,10 @@ pipeline{
         stage('Test'){
             steps{
                 sh 'echo $PATH'
-               sh 'go version' 
+                sh '''
+                    go version
+                    ls -lah
+                '''
             }
         }
     }
