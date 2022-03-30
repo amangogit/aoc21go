@@ -4,7 +4,7 @@ pipeline{
         docker { image 'golang:1.14' }
     }
     stages{
-        stage('Test'){
+        stage('build'){
             steps{
                 sh 'echo $PATH'
                 sh 'echo $USER'
@@ -18,6 +18,12 @@ pipeline{
                 timeout(time: 3, unit: 'MINUTES'){
                     sh 'echo $USER'
                 }
+            }
+        }
+        stage('Test'){
+            steps{
+                sh 'go version'
+                sh 'echo $USERNAME'
             }
         }
     }
