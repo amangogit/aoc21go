@@ -3,10 +3,14 @@ pipeline{
     agent {
         docker { image 'golang:1.14' }
     }
+    environment{
+        USER = 'aman'
+    }
     stages{
         stage('build'){
             steps{
                 sh 'echo $PATH'
+                sh 'pwd'
                 sh 'echo $USER'
                 sh '''
                     go version
@@ -24,6 +28,9 @@ pipeline{
             steps{
                 sh 'go version'
                 sh 'echo $USERNAME'
+                echo "User env is ${USER}"
+                sh 'getent passwd ${USER}'
+                sh 'printenv'
             }
         }
     }
