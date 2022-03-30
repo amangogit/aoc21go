@@ -11,6 +11,9 @@ pipeline{
                     go version
                     ls -lah
                 '''
+                retry(3){
+                    sh 'whoami'
+                }
             }
         }
     }
