@@ -7,6 +7,7 @@ pipeline{
         stage('Test'){
             steps{
                 sh 'echo $PATH'
+                sh 'echo $USER'
                 sh '''
                     go version
                     ls -lah
