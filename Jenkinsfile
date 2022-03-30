@@ -37,6 +37,11 @@ pipeline{
     post{
         always{
             echo 'This will always run'
+            echo "${currentBuild.fullDisplayName}"
+            echo "${env.BUILD_URL}"
+            // mail to: 'amankuamr.a@vvdntech.in',
+            //     subject: "Test Jenkins: ${currentBuild.fullDisplayName}",
+            //     body: "This is Test mail for email notification check. ${env.BUILD_URL}"
         }
         success{
             echo 'This will run only if successful'
